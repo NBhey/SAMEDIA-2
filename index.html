@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMEDIA-2</title>
+    <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+    <main class="authorization">
+        <section class="authorization-wrap" >
+            <img src="./src/img/flower.png" alt="авторизация-лого">
+            <h2 class="authorization__title">Авторизация</h2>
+            <form class="authorization__form">
+                <label class="authorization__label">
+                    <input id="login" class="authorization__element" type="text" name="name" placeholder="Email или телефон" >
+                </label>
+                <label class="authorization__label">
+                    <input id="password" class="authorization__element" type="password" name="password" placeholder="Пароль">
+                </label>
+                <span class="authorization__result">
+                </span>
+                <button class="authorization__button">
+                    Войти
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="./src/index.js"></script>
+</body>
+</html>
