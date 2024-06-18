@@ -4,7 +4,7 @@ const btn = document.querySelector(".authorization__button");
 const authorizationForm = document.querySelector(".authorization__form");
 const authorizationWrapper = document.querySelector(".authorization-wrap");
 
-async function request(login, password) {
+async function requestLogin(login, password) {
   const response = await fetch(
     `https://test-works.pr-uni.ru/api/login/index.php?login=${login}&password=${password}`
   );
@@ -17,9 +17,9 @@ async function request(login, password) {
 
 const authorizationResult = document.querySelector(".authorization__result");
 
-btn.addEventListener("click", async (e) => {
+authorizationForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const result = await request(inputLogin.value, inputPassword.value);
+  const result = await requestLogin(inputLogin.value, inputPassword.value);
   if (result.status === "ok") {
     inputLogin.setAttribute("style", "color:#43A470; border-color:#43A470;");
     inputPassword.setAttribute("style", "border-color:#43A470;");
@@ -31,10 +31,10 @@ btn.addEventListener("click", async (e) => {
                 <h2 class="authorization__title">Добро пожаловать!</h2>
                 <p class="authorization__welcome">${result.user["name"]}, Вы успешно авторизованы</p>
                 `;
-    }, 3000);
+    }, 1000);
   } else {
-    inputLogin.setAttribute("style", "color:#F65454; border-color:#F65454;");
-    inputPassword.setAttribute("style", "color:#F65454; border-color:#F65454;");
+    inputLogin.classList.add("authorization__failure");
+    inputPassword.classList.add("authorization__failure");
     authorizationResult.innerHTML = `${result.errorMessage}`;
   }
 });
