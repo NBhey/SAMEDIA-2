@@ -98,6 +98,10 @@ body {
   background-color: #e9bb59;
 }
 
+.authorization__succsess {
+  border-color:#43A470;
+}
+
 .authorization__failure {
   color: #F65454;
   border-color:#F65454;
